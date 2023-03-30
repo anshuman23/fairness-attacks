@@ -37,7 +37,7 @@ class BinaryClassifier(pl.LightningModule):
 
         self.spd = SPD(use_abs=fairness_metrics_abs)
         self.eod = EOD(use_abs=fairness_metrics_abs)
-        self.acc = Accuracy()
+        self.acc = Accuracy(task='binary')
         self.loss = nn.BCEWithLogitsLoss()
 
     def forward(self, x: Tensor) -> Tensor:
